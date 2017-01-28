@@ -58,3 +58,8 @@ add_executable(flyGuy src/flyGuy.cpp)
 target_link_libraries(flyGuy ${catkin_LIBRARIES})
 add_dependencies(flyGuy flyGuy_generate_messages_cpp)
 target_link_libraries(flyGuy ${OpenCV_LIBRARIES})
+
+add_executable(belbic_test src/belbic_test.cpp)
+target_link_libraries(belbic_test ${catkin_LIBRARIES})
+add_dependencies(belbic_test flyGuy_generate_messages_cpp)
+target_link_libraries(belbic_test ${OpenCV_LIBRARIES})
