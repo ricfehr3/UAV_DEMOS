@@ -1,0 +1,65 @@
+cmake_minimum_required(VERSION 2.8.3)
+project(bebop_control)
+
+## Find catkin and any catkin packages
+find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs genmsg)
+## OpenCV package
+find_package(OpenCV REQUIRED)
+
+## Declare ROS messages and services
+##add_message_files(FILES Num.msg)
+##add_service_files(FILES AddTwoInts.srv)
+
+## Generate added messages and services
+generate_messages(DEPENDENCIES std_msgs)
+
+## Declare a catkin package
+catkin_package()
+
+## Build talker and listener
+include_directories(include ${catkin_INCLUDE_DIRS})
+## OpenCV directories
+include_directories(${OpenCV_INCLUDE_DIRS})
+
+add_executable(bebop_control src/bebop_control.cpp)
+target_link_libraries(bebop_control ${catkin_LIBRARIES})
+add_dependencies(bebop_control bebop_control_generate_messages_cpp)
+
+add_executable(trajectory_bebop_control src/trajectory_bebop_control.cpp)
+target_link_libraries(trajectory_bebop_control ${catkin_LIBRARIES})
+add_dependencies(trajectory_bebop_control trajectory_bebop_control_generate_messages_cpp)
+
+add_executable(waypoint_bebop_control src/waypoint_bebop_control.cpp)
+target_link_libraries(waypoint_bebop_control ${catkin_LIBRARIES})
+add_dependencies(waypoint_bebop_control waypoint_bebop_control_generate_messages_cpp)
+
+add_executable(sumo2bebop1 src/sumo2bebop1.cpp)
+target_link_libraries(sumo2bebop1 ${catkin_LIBRARIES})
+add_dependencies(sumo2bebop1 sumo2bebop1_generate_messages_cpp)
+
+add_executable(4QuadControl src/4QuadControl.cpp)
+target_link_libraries(4QuadControl ${catkin_LIBRARIES})
+add_dependencies(4QuadControl 4QuadControl_generate_messages_cpp)
+
+add_executable(singleDrone src/singleDrone.cpp)
+target_link_libraries(singleDrone ${catkin_LIBRARIES})
+add_dependencies(singleDrone singleDrone_generate_messages_cpp)
+
+add_executable(takeoffLand src/takeoffLand.cpp)
+target_link_libraries(takeoffLand ${catkin_LIBRARIES})
+add_dependencies(takeoffLand takeoffLand_generate_messages_cpp)
+
+add_executable(Consensustest src/Consensustest.cpp)
+target_link_libraries(Consensustest ${catkin_LIBRARIES})
+add_dependencies(Consensustest Consensustest_generate_messages_cpp)
+target_link_libraries(Consensustest ${OpenCV_LIBRARIES})
+
+add_executable(flyGuy src/flyGuy.cpp)
+target_link_libraries(flyGuy ${catkin_LIBRARIES})
+add_dependencies(flyGuy flyGuy_generate_messages_cpp)
+target_link_libraries(flyGuy ${OpenCV_LIBRARIES})
+
+add_executable(belbic_test src/belbic_test.cpp)
+target_link_libraries(belbic_test ${catkin_LIBRARIES})
+add_dependencies(belbic_test flyGuy_generate_messages_cpp)
+target_link_libraries(belbic_test ${OpenCV_LIBRARIES})
