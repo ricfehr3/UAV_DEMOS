@@ -85,7 +85,6 @@ double ro_h(double z, double h)
 	else
 	{
 		out = 0.0;
-		printf("Y O U  M A D E  I T  H E R E\n");
 	}
 	return out;
 }
@@ -99,7 +98,6 @@ double phi(double z, double a, double b)
 
 double phi_alpha(double z, double r_alpha, double d_alpha, double h, double a, double b)
 {
-	printf("butt %f\n",z);
 	double out = ro_h((z/r_alpha),h)*phi((z-d_alpha),a,b);
 	return out;
 }
@@ -131,7 +129,6 @@ double aij(Mat qi, Mat qj, double r_alpha, double h, double epsilon, int i, int 
 	{
 		out = 0;
 	}
-	printf("meme %f dream %d team %d creamed %f\n",out,i,j,(sigma_norm((qj-qi),epsilon)/r_alpha));
 	return out;
 }
 
@@ -479,7 +476,7 @@ int main(int argc, char** argv)
 	// std_msgs::Empty "takeoff" & "land"
 	std_msgs::Empty msg_takeoff, msg_land; 
 	
-	ros::Rate loop_rate(100); // Yeah boi gotta b fast af
+	ros::Rate loop_rate(100); 
 	float dt = 0.05; // YEEEE BOIIII
 	float T = 0.01;
 	int k = 0;
@@ -585,7 +582,6 @@ int main(int argc, char** argv)
 		desired3.pos_z = 1; //qkk3.at<double>(2);
 		desired4.pos_z = 1; //qkk4.at<double>(2);
 		
-		// big boi
 		desired1.yaw = 0;
 		desired2.yaw = 0;
 		desired3.yaw = 0;
