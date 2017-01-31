@@ -56,7 +56,6 @@ Written by Ric Fehr
 using namespace std;
 
 #define PI 3.141592653589793238462
-//butt
 // Struct for states data
 struct states
 {
